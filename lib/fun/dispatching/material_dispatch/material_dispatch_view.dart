@@ -1,11 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/utils/utils.dart';
-import 'package:jd_flutter/widget/custom_widget.dart';
-import 'package:jd_flutter/widget/dialogs.dart';
+import 'package:jd_flutter_for_entrust/widget/custom_widget.dart';
+import 'package:jd_flutter_for_entrust/widget/dialogs.dart';
 import 'package:rotated_corner_decoration/rotated_corner_decoration.dart';
-
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
 import '../../../bean/http/response/material_dispatch_info.dart';
 import '../../../route.dart';
 import '../../../widget/check_box_widget.dart';

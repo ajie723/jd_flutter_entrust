@@ -1,12 +1,12 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/utils/utils.dart';
-import '../bean/home_button.dart';
-import '../bean/http/response/department_info.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/widget/custom_widget.dart';
+
 import '../constant.dart';
-import '../route.dart';
-import '../widget/custom_widget.dart';
+import '../labelReport/label_report_view.dart';
+import '../purchase/purchase_order_view.dart';
 import '../widget/dialogs.dart';
 import 'home_state.dart';
 
@@ -20,55 +20,17 @@ class HomeLogic extends GetxController {
   void onInit() {
     super.onInit();
     userAvatar = Obx(
-      () => state.userPicUrl.value.isEmpty
-          ? const Icon(Icons.flutter_dash, color: Colors.white)
+          () => state.userPicUrl.value.isEmpty
+          ? const Icon(Icons.person_2_outlined, color: Colors.white,size: 50,)
           : ClipOval(child: Image.network(userInfo!.picUrl!)),
     );
   }
 
-  refreshFunList({required Function() refresh}) {
-    state.refreshFunList(
-      success: () {
-        refreshButton();
-        refresh.call();
-      },
-      error: (msg) {
-        errorDialog(content: msg);
-      },
-    );
-  }
-
-  search(String text) {
-    state.search = text;
-    refreshButton();
-  }
-
-  navigationBarClick(int index) {
-    state.nBarIndex = index;
-    refreshButton();
-  }
-
-  refreshButton() {
-    state.buttons.clear();
-    if (state.search.isEmpty) {
-      state.buttons.addAll(
-        functions.where((v) =>
-            v.classify == state.navigationBar[state.nBarIndex].className),
-      );
-    } else {
-      var list = <ButtonItem>[];
-      for (var fun in functions) {
-        if (fun is HomeButtonGroup) {
-          list.addAll(fun.functionGroup);
-        } else {
-          list.add(fun);
-        }
-      }
-      state.buttons.addAll(
-        list.where((v) =>
-            v.name.toUpperCase().contains(state.search.toUpperCase()) ||
-            v.description.toUpperCase().contains(state.search.toUpperCase())),
-      );
+  goPage(int index) {
+    if(index==0){
+      Get.to(() => const PurchaseOrderPage());
+    }else{
+      Get.to(() => const LabelReportPage());
     }
   }
 
@@ -84,29 +46,6 @@ class HomeLogic extends GetxController {
         error: (s) => errorDialog(content: s),
       );
     }, title: 'home_user_setting_avatar_photo_sheet_title'.tr);
-  }
-
-  ///部门列表弹窗
-  getDepartment(Function(List<Department> list, int index) callback) {
-    state.getDepartment(
-      success: (list) {
-        //查询当前部门下标
-        int selected = list.indexWhere((element) {
-          return element.name == userInfo?.departmentName;
-        });
-        if (selected < 0) selected = 0;
-        callback.call(list, selected);
-      },
-      error: (s) => errorDialog(content: s),
-    );
-  }
-
-  changeDepartment(Department data) {
-    state.changeDepartment(
-      departmentID: data.itemID ?? 0,
-      success: () => Get.back(),
-      error: (s) => errorDialog(content: s),
-    );
   }
 
   changePassword(String oldPassword, String newPassword) {

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:get/get.dart';
-import 'package:jd_flutter/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
 
 import '../../../constant.dart';
 import '../../../route.dart';

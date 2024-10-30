@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
 
 import '../../../bean/http/response/base_data.dart';
 import '../../../bean/http/response/machine_dispatch_info.dart';

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../constant.dart';
 import '../utils/utils.dart';
+import '../widget/dialogs.dart';
 import '../widget/number_text_field_widget.dart';
 import 'login_logic.dart';
 
@@ -21,7 +22,7 @@ class LoginPage extends StatelessWidget {
         ),
       ),
       padding:
-          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       child: ListView(
         //添加登录UI
         children: [
@@ -33,14 +34,14 @@ class LoginPage extends StatelessWidget {
           ),
           const Center(
               child: Text(
-            'Gold Emperor',
-            style: TextStyle(
-              fontSize: 40,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              decoration: TextDecoration.none,
-            ),
-          )),
+                'Gold Emperor',
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  decoration: TextDecoration.none,
+                ),
+              )),
           const Center(child: LoginPick(isReLogin: false)),
           const SizedBox(height: 40),
         ],
@@ -65,37 +66,29 @@ class _LoginPickState extends State<LoginPick>
 
   ///tab控制器
   late var tabController = TabController(
-    length: GetPlatform.isAndroid ? 4 : 3,
+    length: GetPlatform.isAndroid ? 2 : 2,
     vsync: this,
   );
 
-  ///人脸登录手机号输入框控制器
-  var faceLoginPhoneController = TextEditingController()
-    ..text = spGet(spSaveLoginFace) ?? '';
-
-  ///机台登录机台号输入框控制器
-  var machineLoginMachineController = TextEditingController()
-    ..text = spGet(spSaveLoginMachine) ?? '';
-
-  ///机台登录密码输入框控制器
-  var machineLoginPasswordController = TextEditingController();
+  ///验证码密码输入框控制器
+  var codeLoginPasswordController = TextEditingController();
 
   ///手机登录手机号输入框控制器
   var phoneLoginPhoneController = TextEditingController()
-    ..text = spGet(spSaveLoginPhone) ?? '15267733701';
+    ..text = spGet(spSaveLoginPhone) ?? '';
 
-  // ..text = spGet(spSaveLoginPhone) ?? '';
+  ///验证码登录的手机号输入框控制器
+  var codeLoginPhoneController = TextEditingController()
+    ..text = spGet(spSaveLoginCode) ?? '';
 
   ///手机登录密码输入框控制器
-  var phoneLoginPasswordController = TextEditingController()..text = '111111';
+  var phoneLoginPasswordController = TextEditingController()..text = '';
 
   ///手机登录验证码输入框控制器
   late var phoneLoginVCodeController = TextEditingController()
     ..text = state.getDebugVCode();
 
-  ///工号登录工号输入框控制器
-  var workLoginWorkNumberController = TextEditingController()
-    ..text = spGet(spSaveLoginWork) ?? '';
+
 
   ///工号登录密码输入框控制器
   var workLoginPasswordController = TextEditingController();
@@ -127,126 +120,91 @@ class _LoginPickState extends State<LoginPick>
       );
 
   _box(Widget child) => Wrap(
-        children: [
-          Container(
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-              color: Colors.blueAccent,
-            ),
-            margin: const EdgeInsets.all(5),
-            padding: const EdgeInsets.all(20),
-            child: child,
-          )
-        ],
-      );
+    children: [
+      Container(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+          color: Colors.blueAccent,
+        ),
+        margin: const EdgeInsets.all(5),
+        padding: const EdgeInsets.all(20),
+        child: child,
+      )
+    ],
+  );
+
+
 
   _phoneLogin() => _box(
-        Column(
-          children: [
-            textField(
-              controller: phoneLoginPhoneController,
-              hint: 'login_hint_phone'.tr,
-              leftIcon: const Icon(Icons.phone, color: Colors.white),
-              maxLength: 11,
-            ),
-            textField(
-              controller: phoneLoginPasswordController,
-              hint: 'login_hint_password'.tr,
-              leftIcon: const Icon(Icons.lock_outline, color: Colors.white),
-              maxLength: 10,
-              isPassword: true,
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: NumberTextField(
-                    numberController: phoneLoginVCodeController,
-                    maxLength: 6,
-                    textStyle: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                      hintText: 'login_hint_verify_code'.tr,
-                      hintStyle: const TextStyle(color: Colors.white),
-                      counterStyle: const TextStyle(color: Colors.white),
-                      prefixIcon:
-                          const Icon(Icons.email_outlined, color: Colors.white),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 20),
-                Obx(() => ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            state.buttonName.value == 'get_verify_code'.tr
-                                ? Colors.white
-                                : Colors.grey.shade400,
-                      ),
-                      onPressed: () => logic.getVerifyCode(
-                        phoneLoginPhoneController.text,
-                      ),
-                      child: Text(
-                        state.buttonName.value,
-                        style: const TextStyle(
-                          color: Color.fromARGB(255, 213, 41, 42),
-                        ),
-                      ),
-                    )),
-              ],
-            )
-          ],
-        ),
-      );
-
-  _faceLogin() => _box(
+    Column(
+      children: [
         textField(
-          controller: faceLoginPhoneController,
-          hint: 'login_hint_phone'.tr,
-          leftIcon: const Icon(Icons.phone_android, color: Colors.white),
+          controller: phoneLoginPhoneController,
+          hint: 'login_hint_machine'.tr,
+          leftIcon: const Icon(Icons.precision_manufacturing, color: Colors.white),
           maxLength: 11,
         ),
-      );
-
-  _machineLogin() => _box(
-        Column(
-          children: [
-            textField(
-              controller: machineLoginMachineController,
-              hint: 'login_hint_machine'.tr,
-              leftIcon: const Icon(Icons.precision_manufacturing,
-                  color: Colors.white),
-              maxLength: 10,
-            ),
-            textField(
-              controller: machineLoginPasswordController,
-              hint: 'login_hint_password'.tr,
-              leftIcon: const Icon(Icons.lock_outline, color: Colors.white),
-              maxLength: 10,
-              isPassword: true,
-            ),
-          ],
+        textField(
+          controller: phoneLoginPasswordController,
+          hint: 'login_hint_password'.tr,
+          leftIcon: const Icon(Icons.lock_outline, color: Colors.white),
+          maxLength: 10,
+          isPassword: true,
         ),
-      );
+      ],
+    ),
+  );
 
-  _workLogin() => _box(
-        Column(
-          children: [
-            textField(
-              controller: workLoginWorkNumberController,
-              hint: 'login_hint_work_number'.tr,
-              leftIcon: const Icon(Icons.badge_outlined, color: Colors.white),
-              maxLength: 6,
-            ),
-            textField(
-              controller: workLoginPasswordController,
-              hint: 'login_hint_password'.tr,
-              leftIcon: const Icon(Icons.lock_outline, color: Colors.white),
-              maxLength: 10,
-              isPassword: true,
-            ),
-          ],
+  _codeLogin() => _box(
+    Column(
+      children: [
+        textField(
+          controller: codeLoginPhoneController,
+          hint: 'login_hint_phone'.tr,
+          leftIcon: const Icon(Icons.precision_manufacturing, color: Colors.white),
+          maxLength: 11,
         ),
-      );
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: NumberTextField(
+                numberController: codeLoginPasswordController,
+                maxLength: 6,
+                textStyle: const TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: 'login_hint_verify_code'.tr,
+                  hintStyle: const TextStyle(color: Colors.white),
+                  counterStyle: const TextStyle(color: Colors.white),
+                  prefixIcon:
+                  const Icon(Icons.email_outlined, color: Colors.white),
+                ),
+              ),
+            ),
+            const SizedBox(width: 20),
+            Obx(() => ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                state.buttonName.value == 'get_verify_code'.tr
+                    ? Colors.white
+                    : Colors.grey.shade400,
+              ),
+              onPressed: () => logic.getVerifyCode(
+                codeLoginPasswordController.text,
+              ),
+              child: Text(
+                state.buttonName.value,
+                style: const TextStyle(
+                  color: Color.fromARGB(255, 213, 41, 42),
+                ),
+              ),
+            )),
+          ],
+        )
+      ],
+    ),
+  );
 
   @override
   void initState() {
@@ -275,12 +233,9 @@ class _LoginPickState extends State<LoginPick>
           labelColor: Colors.greenAccent,
           unselectedLabelColor: Colors.white,
           overlayColor: WidgetStateProperty.all(Colors.transparent),
-          tabs: [
-            const Tab(icon: Icon(Icons.phone)),
-            if (GetPlatform.isAndroid)
-              const Tab(icon: Icon(Icons.account_circle_outlined)),
-            const Tab(icon: Icon(Icons.precision_manufacturing)),
-            const Tab(icon: Icon(Icons.assignment_ind_outlined))
+          tabs: const [
+            Tab(icon: Icon(Icons.precision_manufacturing)),
+            // Tab(icon: Icon(Icons.message)),
           ],
         ),
         body: Column(
@@ -290,9 +245,7 @@ class _LoginPickState extends State<LoginPick>
                 controller: tabController,
                 children: [
                   _phoneLogin(),
-                  if (GetPlatform.isAndroid) _faceLogin(),
-                  _machineLogin(),
-                  _workLogin()
+                  // _codeLogin()
                 ],
               ),
             ),
@@ -307,45 +260,24 @@ class _LoginPickState extends State<LoginPick>
                 ),
                 onPressed: () {
                   if (tabController.index == 0) {
-                    logic.phoneLogin(
-                      phoneLoginPhoneController.text,
-                      phoneLoginPasswordController.text,
-                      phoneLoginVCodeController.text,
+                    logic.phoneOrCodeLogin(
+                        phoneLoginPhoneController.text,
+                        phoneLoginPasswordController.text,
+                        phoneLoginVCodeController.text,
+                        true
                     );
                     return;
                   }
-                  if (tabController.index == 1) {
-                    if (GetPlatform.isAndroid) {
-                      logic.faceLogin(faceLoginPhoneController.text);
-                    } else {
-                      logic.machineLogin(
-                        machineLoginMachineController.text,
-                        machineLoginPasswordController.text,
-                      );
-                    }
-                    return;
-                  }
-                  if (tabController.index == 2) {
-                    if (GetPlatform.isAndroid) {
-                      logic.machineLogin(
-                        machineLoginMachineController.text,
-                        machineLoginPasswordController.text,
-                      );
-                    } else {
-                      logic.workNumberLogin(
-                        workLoginWorkNumberController.text,
-                        workLoginPasswordController.text,
-                      );
-                    }
-                    return;
-                  }
-                  if (tabController.index == 3) {
-                    logic.workNumberLogin(
-                      workLoginWorkNumberController.text,
-                      workLoginPasswordController.text,
-                    );
-                    return;
-                  }
+                  //
+                  // if (tabController.index == 1) {
+                  //   logic.phoneOrCodeLogin(
+                  //       codeLoginPhoneController.text,
+                  //       codeLoginPasswordController.text,
+                  //       phoneLoginVCodeController.text,
+                  //       false
+                  //   );
+                  //   return;
+                  // }
                 },
                 child: Text(
                   'login'.tr,

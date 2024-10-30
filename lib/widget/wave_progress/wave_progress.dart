@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:jd_flutter/widget/wave_progress/wave.dart';
+import 'package:jd_flutter_for_entrust/widget/wave_progress/wave.dart';
 
 const double _twoPi = math.pi * 2.0;
 const double _epsilon = .001;

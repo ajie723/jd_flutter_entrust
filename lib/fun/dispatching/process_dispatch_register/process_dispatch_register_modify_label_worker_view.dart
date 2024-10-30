@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/fun/dispatching/process_dispatch_register/process_dispatch_register_dialog.dart';
-import 'package:jd_flutter/fun/dispatching/process_dispatch_register/process_dispatch_register_logic.dart';
-import 'package:jd_flutter/fun/dispatching/process_dispatch_register/process_dispatch_register_state.dart';
-import 'package:jd_flutter/widget/custom_widget.dart';
-
+import 'package:jd_flutter_for_entrust/fun/dispatching/process_dispatch_register/process_dispatch_register_dialog.dart';
+import 'package:jd_flutter_for_entrust/fun/dispatching/process_dispatch_register/process_dispatch_register_logic.dart';
+import 'package:jd_flutter_for_entrust/fun/dispatching/process_dispatch_register/process_dispatch_register_state.dart';
+import 'package:jd_flutter_for_entrust/widget/custom_widget.dart';
 import '../../../bean/http/response/worker_info.dart';
 import '../../../constant.dart';
 import '../../../utils/utils.dart';

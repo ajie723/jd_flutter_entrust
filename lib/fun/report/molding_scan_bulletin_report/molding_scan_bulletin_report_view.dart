@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/route.dart';
+import 'package:jd_flutter_for_entrust/route.dart';
 
 import '../../../bean/http/response/molding_scan_bulletin_report_info.dart';
 import '../../../utils/utils.dart';

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/fun/other/scan/part_process_scan/part_process_scan_dispatch_view.dart';
-import 'package:jd_flutter/fun/other/scan/part_process_scan/part_process_scan_logic.dart';
-import 'package:jd_flutter/fun/other/scan/part_process_scan/part_process_scan_quick_dispatch_view.dart';
-import 'package:jd_flutter/utils/utils.dart';
-import 'package:jd_flutter/widget/custom_widget.dart';
-import 'package:jd_flutter/widget/dialogs.dart';
+import 'package:jd_flutter_for_entrust/fun/other/scan/part_process_scan/part_process_scan_dispatch_view.dart';
+import 'package:jd_flutter_for_entrust/fun/other/scan/part_process_scan/part_process_scan_logic.dart';
+import 'package:jd_flutter_for_entrust/fun/other/scan/part_process_scan/part_process_scan_quick_dispatch_view.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/widget/custom_widget.dart';
+import 'package:jd_flutter_for_entrust/widget/dialogs.dart';
 
 import '../../../../bean/http/response/scan_barcode_info.dart';
 import '../../../../widget/check_box_widget.dart';

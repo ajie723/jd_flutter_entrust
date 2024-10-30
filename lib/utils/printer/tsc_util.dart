@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image/image.dart' as img;
-import 'package:jd_flutter/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
 
 ///dpi
 const _dpi = 8;
@@ -23,14 +23,14 @@ const _halfDpi = 4;
 ///[sensorDistance] 感应器距离
 ///[sensorOffset] 感应器偏移
 Uint8List _tscSetup(
-  int width,
-  int height, {
-  int speed = 4,
-  int density = 6,
-  int sensor = 0,
-  int sensorDistance = 2,
-  int sensorOffset = 0,
-}) {
+    int width,
+    int height, {
+      int speed = 4,
+      int density = 6,
+      int sensor = 0,
+      int sensorDistance = 2,
+      int sensorOffset = 0,
+    }) {
   String message;
   String size = 'SIZE $width mm, $height mm';
   String speedValue = 'SPEED $speed';
@@ -93,16 +93,16 @@ Uint8List _tscLine(int x, int y, int width, int height) =>
 ///[mask] 掩码
 ///[content] 内容
 Uint8List _tscQrCode(
-  int x,
-  int y,
-  String content, {
-  String ecc = 'H',
-  String cell = '4',
-  String mode = 'A',
-  String rotation = '0',
-  String version = 'M2',
-  String mask = 'S7',
-}) =>
+    int x,
+    int y,
+    String content, {
+      String ecc = 'H',
+      String cell = '4',
+      String mode = 'A',
+      String rotation = '0',
+      String version = 'M2',
+      String mask = 'S7',
+    }) =>
     utf8.encode(
         'QRCODE $x,$y,$ecc,$cell,$mode,$rotation,$version,$mask,"$content"\r\n');
 
@@ -116,15 +116,15 @@ Uint8List _tscQrCode(
 ///[sepHt] 分隔符高度，默认为2，可选1或2
 ///[segWidth] UCC/EAN-128的高度，默认为35，单位DOT，范围1-500可选
 Uint8List _tscBarCode(
-  int x,
-  int y,
-  String content, {
-  String sym = "UCC128CCA",
-  String rotate = "0",
-  String moduleWidth = "2",
-  String sepHt = "2",
-  String segWidth = "35",
-}) =>
+    int x,
+    int y,
+    String content, {
+      String sym = "UCC128CCA",
+      String rotate = "0",
+      String moduleWidth = "2",
+      String sepHt = "2",
+      String segWidth = "35",
+    }) =>
     utf8.encode(
         'RSS $x,$y,"$sym",$rotate,$moduleWidth,$sepHt,$segWidth,"$content"\r\n');
 
@@ -137,14 +137,14 @@ Uint8List _tscBarCode(
 ///[yMultiplication] y方向放大倍数
 ///[string] 文本
 List<int> _tscText(
-  int x,
-  int y,
-  String fontSize,
-  int rotation,
-  int xMultiplication,
-  int yMultiplication,
-  String text,
-) =>
+    int x,
+    int y,
+    String fontSize,
+    int rotation,
+    int xMultiplication,
+    int yMultiplication,
+    String text,
+    ) =>
     gbk.encode(
         'TEXT $x,$y,"$fontSize",$rotation,$xMultiplication,$yMultiplication,"$text"\r\n');
 
@@ -154,11 +154,11 @@ List<int> _tscText(
 ///[fontSize] 字体大小
 ///[text] 文本内容
 Future<Uint8List> _tscBitmapText(
-  int xAxis,
-  int yAxis,
-  double fontSize,
-  String text,
-) async {
+    int xAxis,
+    int yAxis,
+    double fontSize,
+    String text,
+    ) async {
   var recorder = ui.PictureRecorder();
   var canvas = Canvas(recorder);
   var tp = TextPainter()
@@ -260,12 +260,12 @@ Future<Uint8List> _tscBitmapText(
 }
 
 Future<Uint8List> _tscBitmap(
-  int xAxis,
-  int yAxis,
-  Uint8List bitmapData,
-  int reSizeWidth,
-  int reSizeHeight,
-) async {
+    int xAxis,
+    int yAxis,
+    Uint8List bitmapData,
+    int reSizeWidth,
+    int reSizeHeight,
+    ) async {
   //创建图像处理器
   var image = img.decodeImage(bitmapData)!;
 
@@ -371,16 +371,15 @@ List<String> contextFormat(String text, double fontSize, double maxWidthPx) {
 ///[bottom] 表格底部
 ///[tableData] 表格数据
 List<List<String>> tableFormat(
-  String title,
-  String bottom,
-  Map<String, List<List<String>>> tableData,
-) {
+    String title,
+    String bottom,
+    Map<String, List<List<String>>> tableData,
+    ) {
   var list = <List<String>>[];
   if (tableData.isEmpty) return [];
+  //取出所有尺码
   var titleList = <String>[];
   var columnsTitleList = <String>[];
-
-  //取出所有尺码
   tableData.forEach((k, v) {
     for (var v2 in v) {
       if (!titleList.contains(v2[0])) {
@@ -393,8 +392,9 @@ List<List<String>> tableFormat(
   //指令缺的尺码做补位处理
   tableData.forEach((k, v) {
     var text = <List<String>>[];
-    for (var v2 in titleList) {
-      text.add(v.firstWhere((e) => e[0] == v2, orElse: () => [v2, '']));
+    for (var indexText in titleList) {
+      text.add(v.firstWhere((e) => e[0] == indexText,
+          orElse: () => [indexText, '']));
     }
     v.clear();
     v.addAll(text);
@@ -402,32 +402,24 @@ List<List<String>> tableFormat(
 
   //添加表格头行
   var printList = <List<String>>[];
-  var print = <String>[];
 
   //保存表格列第一格
   columnsTitleList.add(title);
   //保存表格第一行
-  for (var v in titleList) {
-    print.add(v);
-  }
-  printList.add(print);
+  printList.add(titleList);
 
   //添加表格体
   tableData.forEach((k, v) {
-    print = <String>[];
     //保存表格列第一格
     columnsTitleList.add(k);
     //保存表格本体所有行
-    for (var v2 in v) {
-      print.add(v2[1]);
-    }
-    printList.add(print);
+    printList.add([for (var v2 in v) v2[1]]);
   });
 
-  //添加表格尾行
-  print = <String>[];
+
   //保存表格列第一格
   columnsTitleList.add(bottom);
+  var print=<String>[];
   //保存表格最后一行
   for (var i = 0; i < titleList.length; ++i) {
     var sum = 0.0;
@@ -442,7 +434,7 @@ List<List<String>> tableFormat(
 
   var max = 6;
   var maxColumns =
-      (titleList.length / max) + (titleList.length % max) > 0 ? 1 : 0;
+  (titleList.length / max) + (titleList.length % max) > 0 ? 1 : 0;
   for (var i = 0; i < maxColumns; ++i) {
     //添加表格
     printList.forEachIndexed((index, data) {
@@ -467,6 +459,7 @@ List<List<String>> tableFormat(
   return list;
 }
 
+
 //------------------------------------以上为tsc指令集--------------------------------------
 
 /// 财产标签
@@ -476,11 +469,11 @@ List<List<String>> tableFormat(
 /// [number] 资产编号
 /// [date] 日期
 Future<List<Uint8List>> labelForProperty(
-  String id,
-  String name,
-  String number,
-  String date,
-) async =>
+    String id,
+    String name,
+    String number,
+    String date,
+    ) async =>
     [
       _tscClearBuffer(),
       _tscSetup(70, 40),
@@ -746,7 +739,6 @@ Future<List<Uint8List>> labelMultipurposeDynamic({
       bottomTextHeight +
       padding +
       margin;
-
   var qrCodeX = (1 + padding) * _dpi;
   var qrCodeY = (margin + padding) * _dpi;
   var qrCodeShowX = (1 + padding + qrCodeWidth) * _dpi;
@@ -765,37 +757,37 @@ Future<List<Uint8List>> labelMultipurposeDynamic({
       (margin + padding + qrCodeWidth + tableTitleHeight) * _dpi;
   var bLeftText1X = (1 + padding) * _dpi;
   var bLeftText1Y = (margin +
-          padding +
-          qrCodeWidth +
-          tableTitleHeight +
-          tableSubTitleHeight +
-          tableHeight) *
+      padding +
+      qrCodeWidth +
+      tableTitleHeight +
+      tableSubTitleHeight +
+      tableHeight) *
       _dpi;
   var bLeftText2X = (1 + padding) * _dpi;
   var bLeftText2Y = (margin +
-          padding +
-          qrCodeWidth +
-          tableTitleHeight +
-          tableSubTitleHeight +
-          tableHeight +
-          4) *
+      padding +
+      qrCodeWidth +
+      tableTitleHeight +
+      tableSubTitleHeight +
+      tableHeight +
+      4) *
       _dpi;
   var bRightText1X = (1 + padding + 35) * _dpi;
   var bRightText1Y = (margin +
-          padding +
-          qrCodeWidth +
-          tableTitleHeight +
-          tableSubTitleHeight +
-          tableHeight) *
+      padding +
+      qrCodeWidth +
+      tableTitleHeight +
+      tableSubTitleHeight +
+      tableHeight) *
       _dpi;
   var bRightText2X = (1 + padding + 35) * _dpi;
   var bRightText2Y = (margin +
-          padding +
-          qrCodeWidth +
-          tableTitleHeight +
-          tableSubTitleHeight +
-          tableHeight +
-          4) *
+      padding +
+      qrCodeWidth +
+      tableTitleHeight +
+      tableSubTitleHeight +
+      tableHeight +
+      4) *
       _dpi;
 
   list.add(_tscClearBuffer());
@@ -818,7 +810,7 @@ Future<List<Uint8List>> labelMultipurposeDynamic({
       //行高
       var lineHeight = 4;
       list.add(await _tscBitmapText(
-          subTitleX, subTitleY + lineHeight * i * _dpi, 30, format2[i]));
+          subTitleX, subTitleY + lineHeight * i * _dpi, 29, format2[i]));
     }
   }
 
@@ -842,11 +834,11 @@ Future<List<Uint8List>> labelMultipurposeDynamic({
 
   if (table.isNotEmpty) {
     var boxY = (margin +
-            padding +
-            qrCodeWidth +
-            tableTitleHeight +
-            tableSubTitleHeight +
-            1) *
+        padding +
+        qrCodeWidth +
+        tableTitleHeight +
+        tableSubTitleHeight +
+        1) *
         _dpi;
     for (var line in table) {
       var boxX = (1 + padding) * _dpi;
@@ -856,16 +848,16 @@ Future<List<Uint8List>> labelMultipurposeDynamic({
         boxH += tableLineWrap * _dpi;
       } else {
         int boxW;
-        line.forEachIndexed((columnIndex, s) async {
-          boxW = columnIndex == 0 ? 22 * _dpi : 8 * _dpi;
-          if (s.isNotEmpty) {
-            list.add(await _tscBitmapText(boxX + _dpi, boxY + _dpi, 28, s));
+        for (var i = 0; i < line.length; ++i) {
+          boxW = i == 0 ? 22 * _dpi : 8 * _dpi;
+          if (line[i].isNotEmpty) {
+            list.add(await _tscBitmapText(boxX + _dpi, boxY + _dpi, 28, line[i]));
           }
           list.add(_tscBox(
               boxX, boxY + _halfDpi, boxW + boxX, boxH + boxY + _halfDpi,
               crude: 2));
           boxX += boxW;
-        });
+        }
         boxY += tableLineHeight * _dpi;
         boxH += tableLineHeight * _dpi;
       }
@@ -963,14 +955,14 @@ Future<List<Uint8List>> _imageResizeToLabel(Uint8List image) async {
 }
 
 Future<List<List<Uint8List>>> imageResizeToLabels(
-  List<Uint8List> images,
-) async {
+    List<Uint8List> images,
+    ) async {
   return await compute(_imageResizeToLabels, images);
 }
 
 Future<List<List<Uint8List>>> _imageResizeToLabels(
-  List<Uint8List> images,
-) async {
+    List<Uint8List> images,
+    ) async {
   List<List<Uint8List>> labelList = [];
   for (var image in images) {
     var reImage = img.copyResize(

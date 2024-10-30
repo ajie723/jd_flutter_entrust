@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/utils/utils.dart';
-import 'package:jd_flutter/widget/picker/picker_view.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/widget/picker/picker_view.dart';
 
 import '../../../bean/http/response/worker_production_detail_info.dart';
 import '../../../widget/custom_widget.dart';

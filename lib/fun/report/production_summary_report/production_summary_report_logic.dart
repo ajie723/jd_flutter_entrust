@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:jd_flutter/route.dart';
+import 'package:jd_flutter_for_entrust/route.dart';
 
 import '../../../widget/dialogs.dart';
 import '../../../widget/picker/picker_controller.dart';

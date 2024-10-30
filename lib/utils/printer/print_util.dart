@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/widget/dialogs.dart';
+import 'package:jd_flutter_for_entrust/widget/dialogs.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../bean/bluetooth_device.dart';

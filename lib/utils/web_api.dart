@@ -647,4 +647,27 @@ const webApiGetProcessFlowEXTypes = 'api/QMProcessFlowEx/GetProcessFlowEXTypes';
 ///品质异常插入
 const webApiAddAbnormalQuality = 'api/QMProcessFlowEx/QMAbnormityBysuitID';
 
+///获取供应商采购订单列表
+const webApiGetSupplyPurchaseOrders = 'api/Supplier/GetSupplyPurchaseOrders';
+
+///获取供应商采购订单详情
+const webApiGetSupplyPurchaseOrderInfo = 'api/Supplier/GetSupplyPurchaseOrderInfo';
+
+///获取供应商采购创建贴标
+const webApiGeneratePackingLabelCode = 'api/Supplier/GeneratePackingLabelCode';
+
+///供应商扫码汇报获取采购订单
+const webApiGetPurchaseOrderInfo4Report = 'api/Supplier/GetPurchaseOrderInfo4Report';
+
+///供应商扫码汇报删除贴标
+const webApiGetPoDelBarcode = 'api/Supplier/PoDelBarcode';
+
+///提交扫描了的条码
+const webApiPurchaseOrderScanReport = 'api/Supplier/PurchaseOrderScanReport';
+
+///设置打印标识
+const webApiSetPrintLabelFlag = "api/NeedleCartDispatch/SetPrintLabelFlag";
+
+
+
 

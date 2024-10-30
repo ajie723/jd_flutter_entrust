@@ -53,9 +53,13 @@ class UserInfo {
     this.sapFactory,
     this.jurisdictionList,
     this.reportDeptmentID,
+    this.fSupplierID,
+    this.supplierNumber,
   });
 
   UserInfo.fromJson(dynamic json) {
+    supplierNumber = json['SupplierNumber'];
+    fSupplierID = json['FSupplierID'];
     token = json['Token'];
     departmentID = json['DepartmentID'];
     dutyID = json['DutyID'];
@@ -90,6 +94,8 @@ class UserInfo {
   }
 
   String? token;
+  String? fSupplierID;
+  String? supplierNumber;
   int? departmentID;
   int? dutyID;
   int? empID;
@@ -118,6 +124,8 @@ class UserInfo {
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
+    map['SupplierNumber'] = supplierNumber;
+    map['TSupplierID'] = fSupplierID;
     map['Token'] = token;
     map['DepartmentID'] = departmentID;
     map['DutyID'] = dutyID;

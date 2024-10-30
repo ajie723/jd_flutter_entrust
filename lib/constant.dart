@@ -22,3 +22,4 @@ const channelBluetoothIosToFlutter = 'channel_bluetooth_ios_to_flutter';
 
 const spSaveMoldingScanBulletinReportTimeDuration =
     'molding_scan_bulletin_report_time_duration';
+const spSaveLoginCode = 'login_code';

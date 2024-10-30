@@ -9,8 +9,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/constant.dart';
-import 'package:jd_flutter/widget/dialogs.dart';
+import 'package:jd_flutter_for_entrust/constant.dart';
+import 'package:jd_flutter_for_entrust/widget/dialogs.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -291,12 +291,13 @@ getVersionInfo(
   ).then((versionInfoCallback) {
     if (versionInfoCallback.resultCode == resultSuccess) {
       logger.i(packageInfo);
-      var versionInfo = VersionInfo.fromJson(versionInfoCallback.data);
-      if (packageInfo.version == versionInfo.versionName) {
-        noUpdate.call();
-      } else {
-        needUpdate.call(versionInfo);
-      }
+      // var versionInfo = VersionInfo.fromJson(versionInfoCallback.data);
+      // if (packageInfo.version == versionInfo.versionName) {
+      //   noUpdate.call();
+      // } else {
+      //   needUpdate.call(versionInfo);
+      // }
+      noUpdate.call();
     } else {
       errorDialog(content: versionInfoCallback.message);
     }

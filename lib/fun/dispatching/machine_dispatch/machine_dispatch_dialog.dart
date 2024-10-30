@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hand_signature/signature.dart';
-import 'package:jd_flutter/utils/utils.dart';
-import 'package:jd_flutter/widget/custom_widget.dart';
-import 'package:jd_flutter/widget/dialogs.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/widget/custom_widget.dart';
+import 'package:jd_flutter_for_entrust/widget/dialogs.dart';
 import 'package:rotated_corner_decoration/rotated_corner_decoration.dart';
 
 import '../../../bean/http/response/machine_dispatch_info.dart';

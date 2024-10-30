@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/fun/dispatching/work_order_list/part_pick_view.dart';
-import 'package:jd_flutter/widget/custom_widget.dart';
+import 'package:jd_flutter_for_entrust/fun/dispatching/work_order_list/part_pick_view.dart';
+import 'package:jd_flutter_for_entrust/widget/custom_widget.dart';
 
 import '../../../bean/http/response/work_order_info.dart';
 import '../../../utils/utils.dart';

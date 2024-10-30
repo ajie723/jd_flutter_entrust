@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/fun/dispatching/production_dispatch/production_dispatch_dialogs.dart';
-import 'package:jd_flutter/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/fun/dispatching/production_dispatch/production_dispatch_dialogs.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
 import 'package:marquee/marquee.dart';
 
 import '../../../bean/http/response/production_dispatch_order_info.dart';

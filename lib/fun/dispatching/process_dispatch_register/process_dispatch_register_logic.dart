@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
-import 'package:jd_flutter/bean/http/response/process_dispatch_register_info.dart';
-import 'package:jd_flutter/fun/dispatching/process_dispatch_register/process_dispatch_register_print_label_view.dart';
-import 'package:jd_flutter/widget/dialogs.dart';
+import 'package:jd_flutter_for_entrust/bean/http/response/process_dispatch_register_info.dart';
+import 'package:jd_flutter_for_entrust/fun/dispatching/process_dispatch_register/process_dispatch_register_print_label_view.dart';
+import 'package:jd_flutter_for_entrust/widget/dialogs.dart';
+
 
 import '../../../utils/utils.dart';
 import 'process_dispatch_register_state.dart';

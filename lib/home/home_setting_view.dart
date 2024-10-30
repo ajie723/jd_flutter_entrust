@@ -91,113 +91,6 @@ class _UserSettingState extends State<UserSetting> {
     );
   }
 
-  ///工厂
-  factory() {
-    return SizedBox(
-      width: 260,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Text(
-            'home_user_setting_factory'.tr,
-            style: hintTextStyle,
-          ),
-          Text(
-            userInfo?.factory ?? '',
-            style: hintTextStyle,
-          ),
-        ],
-      ),
-    );
-  }
-
-  ///部门
-  department() {
-    return SizedBox(
-      width: 260,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Text(
-            'home_user_setting_department'.tr,
-            style: hintTextStyle,
-          ),
-          GestureDetector(
-            onTap: () => logic.getDepartment(
-              (l, i) => showChangeDepartmentPopup(l, i),
-            ),
-            child: Row(
-              children: [
-                Obx(
-                  () => Text(
-                    state.departmentName.value,
-                    style: clickTextStyle,
-                  ),
-                ),
-                const Icon(Icons.arrow_drop_down, color: Colors.black45)
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-
-  showChangeDepartmentPopup(List<Department> list, int selected) {
-    //创建选择器控制器
-    var controller = FixedExtentScrollController(initialItem: selected);
-
-    //创建底部弹窗
-    showPopup(Column(
-      children: <Widget>[
-        //选择器顶部按钮
-        Container(
-          height: 45,
-          color: Colors.grey[200],
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextButton(
-                onPressed: () {
-                  Get.back();
-                },
-                child: Text(
-                  'dialog_default_cancel'.tr,
-                  style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-              TextButton(
-                onPressed: () => logic.changeDepartment(
-                  list[controller.initialItem],
-                ),
-                child: Text(
-                  'dialog_default_confirm'.tr,
-                  style: const TextStyle(
-                    color: Colors.blueAccent,
-                    fontSize: 20,
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-        //选择器主体
-        Expanded(
-          child: getCupertinoPicker(
-            list.map((data) {
-              return Center(child: Text(data.name!));
-            }).toList(),
-            controller,
-          ),
-        )
-      ],
-    ));
-  }
 
   ///职位
   position() {
@@ -378,7 +271,6 @@ class _UserSettingState extends State<UserSetting> {
           onPressed: () {
             spSave(spSaveUserInfo, '');
             Get.offAll(() => const LoginPage());
-            // Get.dialog(const BluetoothDialog());
           },
           child: Text('home_user_setting_logout'.tr,
               style: const TextStyle(fontSize: 20))),
@@ -401,9 +293,6 @@ class _UserSettingState extends State<UserSetting> {
               children: [
                 name(),
                 const SizedBox(height: 20),
-                factory(),
-                line,
-                department(),
                 line,
                 position(),
                 line,

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:jd_flutter/route.dart';
+import 'package:jd_flutter_for_entrust/route.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../utils/utils.dart';

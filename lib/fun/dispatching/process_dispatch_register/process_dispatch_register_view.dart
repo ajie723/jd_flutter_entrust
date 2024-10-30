@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/fun/dispatching/process_dispatch_register/process_dispatch_register_dialog.dart';
-import 'package:jd_flutter/fun/dispatching/process_dispatch_register/process_dispatch_register_modify_label_worker_view.dart';
-import 'package:jd_flutter/fun/dispatching/process_dispatch_register/process_dispatch_register_state.dart';
-import 'package:jd_flutter/utils/utils.dart';
-import 'package:jd_flutter/widget/custom_widget.dart';
-
+import 'package:jd_flutter_for_entrust/fun/dispatching/process_dispatch_register/process_dispatch_register_dialog.dart';
+import 'package:jd_flutter_for_entrust/fun/dispatching/process_dispatch_register/process_dispatch_register_modify_label_worker_view.dart';
+import 'package:jd_flutter_for_entrust/fun/dispatching/process_dispatch_register/process_dispatch_register_state.dart';
+import 'package:jd_flutter_for_entrust/widget/custom_widget.dart';
 import '../../../constant.dart';
 import '../../../widget/combination_button_widget.dart';
 import '../../../widget/edit_text_widget.dart';
 import 'process_dispatch_register_logic.dart';
+import '../../../utils/utils.dart';
 
 class ProcessDispatchRegisterPage extends StatefulWidget {
   const ProcessDispatchRegisterPage({super.key});

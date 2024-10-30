@@ -2,8 +2,8 @@ import 'package:collection/collection.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/bean/http/response/base_data.dart';
-import 'package:jd_flutter/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/bean/http/response/base_data.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
 
 import '../../../bean/http/response/maintain_material_info.dart';
 import '../../../bean/http/response/picking_bar_code_info.dart';

@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/bean/http/response/base_data.dart';
+import 'package:jd_flutter_for_entrust/bean/http/response/base_data.dart';
 import '../../../bean/http/response/manufacture_instructions_info.dart';
 import '../../../bean/http/response/order_color_info.dart';
 import '../../../bean/http/response/prd_route_info.dart';

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:jd_flutter/utils/web_api.dart';
+import 'package:jd_flutter_for_entrust/utils/web_api.dart';
 
 import '../../../../bean/http/response/carton_label_scan_info.dart';
 

@@ -1,4 +1,4 @@
-import 'package:jd_flutter/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
 
 /// Size : "35"
 /// NetWeight : "5.000"

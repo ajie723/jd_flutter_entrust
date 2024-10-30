@@ -1,8 +1,8 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/utils/utils.dart';
-import 'package:jd_flutter/widget/custom_widget.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/widget/custom_widget.dart';
 
 import '../../../bean/http/response/label_info.dart';
 import '../../../widget/check_box_widget.dart';

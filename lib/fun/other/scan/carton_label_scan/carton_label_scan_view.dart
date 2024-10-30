@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/widget/custom_widget.dart';
-import 'package:jd_flutter/widget/edit_text_widget.dart';
+import 'package:jd_flutter_for_entrust/widget/custom_widget.dart';
+import 'package:jd_flutter_for_entrust/widget/edit_text_widget.dart';
 
 import '../../../../bean/http/response/carton_label_scan_info.dart';
 import '../../../../constant.dart';

@@ -1,7 +1,7 @@
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/widget/custom_widget.dart';
+import 'package:jd_flutter_for_entrust/widget/custom_widget.dart';
 
 import '../../../widget/picker/picker_view.dart';
 import 'smart_delivery_logic.dart';

@@ -2,10 +2,9 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:get/get.dart';
-import 'package:jd_flutter/utils/utils.dart';
-
 import '../bean/http/response/user_info.dart';
 import '../constant.dart';
+import '../utils/utils.dart';
 import '../utils/web_api.dart';
 
 class LoginState {
@@ -64,7 +63,7 @@ class LoginState {
               countTimer = 0;
               buttonName.value = 'get_verify_code'.tr;
             } else {
-             buttonName.value = (60 - countTimer).toString();
+              buttonName.value = (60 - countTimer).toString();
             }
           },
         );
@@ -75,23 +74,21 @@ class LoginState {
   }
 
   login({
-    required String jiGuangID,
     required String phone,
     required String password,
     required String vCode,
-    required int type,
     required Function(UserInfo userInfo) success,
     required Function(String msg) error,
   }) {
     httpPost(
-      loading: 'logging'.tr,
+      loading: '正在登录...',
       method: webApiLogin,
       params: {
-        'JiGuangID': jiGuangID,
+        'JiGuangID': '',
+        'VCode': '',
         'Phone': phone,
         'Password': password,
-        'VCode': vCode,
-        'Type': type,
+        'Type': 1,
       },
     ).then((response) {
       if (response.resultCode == resultSuccess) {
@@ -103,4 +100,5 @@ class LoginState {
       }
     });
   }
+
 }

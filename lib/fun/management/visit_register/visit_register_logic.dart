@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/fun/management/visit_register/visit_register_add_view.dart';
-import 'package:jd_flutter/fun/management/visit_register/visit_register_detail_view.dart';
-import 'package:jd_flutter/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/fun/management/visit_register/visit_register_add_view.dart';
+import 'package:jd_flutter_for_entrust/fun/management/visit_register/visit_register_detail_view.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
 import '../../../bean/http/response/leave_visit_record.dart';
 import '../../../bean/http/response/photoBean.dart';
 import '../../../bean/http/response/search_people_info.dart';

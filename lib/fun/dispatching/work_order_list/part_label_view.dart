@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/fun/dispatching/work_order_list/work_order_list_logic.dart';
-import 'package:jd_flutter/utils/utils.dart';
-import 'package:jd_flutter/widget/custom_widget.dart';
-import 'package:jd_flutter/widget/dialogs.dart';
+import 'package:jd_flutter_for_entrust/fun/dispatching/work_order_list/work_order_list_logic.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/widget/custom_widget.dart';
+import 'package:jd_flutter_for_entrust/widget/dialogs.dart';
 
 import '../../../bean/http/response/part_detail_info.dart';
 import '../../../widget/combination_button_widget.dart';

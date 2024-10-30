@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/fun/dispatching/machine_dispatch/machine_dispatch_dialog.dart';
-import 'package:jd_flutter/utils/utils.dart';
-import 'package:jd_flutter/widget/custom_widget.dart';
+import 'package:jd_flutter_for_entrust/fun/dispatching/machine_dispatch/machine_dispatch_dialog.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/widget/custom_widget.dart';
+
 
 import '../../../bean/http/response/machine_dispatch_info.dart';
 import '../../../widget/combination_button_widget.dart';

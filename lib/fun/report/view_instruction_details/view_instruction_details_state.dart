@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:jd_flutter/widget/dialogs.dart';
+import 'package:jd_flutter_for_entrust/widget/dialogs.dart';
 
 import '../../../utils/web_api.dart';
 

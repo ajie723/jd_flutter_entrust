@@ -1,5 +1,5 @@
 
-import 'package:jd_flutter/bean/http/response/photoBean.dart';
+import 'package:jd_flutter_for_entrust/bean/http/response/photoBean.dart';
 
 /// InterID : "2301"
 /// Number : "LFRY2002301"

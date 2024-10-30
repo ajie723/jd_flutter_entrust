@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
 
 import '../../../bean/http/response/material_dispatch_info.dart';
 import '../../../bean/http/response/process_specification_info.dart';

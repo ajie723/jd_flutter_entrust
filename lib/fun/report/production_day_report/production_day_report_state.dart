@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:jd_flutter/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
 
 import '../../../bean/http/response/production_day_report_info.dart';
 import '../../../utils/web_api.dart';

@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/fun/management/visit_register/visit_register_logic.dart';
+import 'package:jd_flutter_for_entrust/fun/management/visit_register/visit_register_logic.dart';
 
 import '../../../bean/http/response/visit_add_record_info.dart';
 import '../../../bean/http/response/visit_photo_bean.dart';

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:jd_flutter/utils/utils.dart';
+import 'package:jd_flutter_for_entrust/utils/utils.dart';
 
 class Translation extends Translations {
   @override
@@ -44,7 +44,7 @@ class Translation extends Translations {
           'login_hint_work_number': '工号',
           'login_hint_password': '密码',
           'login_hint_verify_code': '验证码',
-          'login_tips_phone': '请输入手机号',
+          'login_tips_phone': '请输入机台号',
           'login_tips_machine': '请输入机台账号',
           'login_tips_work_number': '请输入工号',
           'login_tips_password': '请输入密码',
@@ -389,6 +389,13 @@ class Translation extends Translations {
           'visit_search_record_car': '车牌号码:',
           'quality_management_number': '请输入工号',
 
+
+          'purchase_sale_order': '销售订单号',
+          'purchase_sale_voucher': '采购凭证号',
+          'purchase_get_sale_order': '正在获取采购订单列表...',
+          'purchase_get_sale_order_detail': '正在获取采购订单详情...',
+          'picker_start_date': '开始日期',
+          'picker_end_date': '结束日期',
 
         },
         localeEnglish.toString(): {
@@ -802,6 +809,11 @@ class Translation extends Translations {
           'visit_search_record_phone': 'Phone:',
           'visit_search_record_car': 'Car No:',
           'quality_management_number': 'Please enter the job number',
+          'purchase_sale_order': 'Sales order number',
+          'purchase_get_sale_order': 'Obtaining the list of purchase orders...',
+          'picker_start_date': 'Start date',
+          'picker_end_date': 'End Date',
+          'purchase_get_sale_order_detail': 'Obtaining purchase order details...',
         }
       };
 }

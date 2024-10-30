@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jd_flutter/fun/management/property/property_detail_view.dart';
+import 'package:jd_flutter_for_entrust/fun/management/property/property_detail_view.dart';
 import '../../../utils/web_api.dart';
 import '../../../route.dart';
 import '../../../utils/utils.dart';
